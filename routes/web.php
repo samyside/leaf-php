@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 app()->get('/', function () {
   response()->json(['message' => 'Hello World!']);
@@ -14,5 +14,11 @@ app()->post('/ip', function() {
   $ip_address = file_get_contents('http://ifconfig.me/ip');
   echo "Your external IP: $ip_address";
 });
+
+app()->get('/ip', function() {
+  $ip_address = file_get_contents('http://ifconfig.me/ip');
+  echo "Your external IP: $ip_address";
+});
+
 
 app()->run();
